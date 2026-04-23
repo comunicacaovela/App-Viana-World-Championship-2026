@@ -2,43 +2,39 @@
 <html lang="pt-PT">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Acesso - 2026 Formula Kite</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="bg-slate-950 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
     
-    <!-- Imagem de fundo -->
-    <!-- Nota: Corrigi para .jpg consoante o ficheiro que fizeste upload -->
     <div class="absolute inset-0 bg-[url(image_11335c.png)] bg-cover bg-center opacity-20"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
 
-    <!-- Container do formulário -->
     <div class="max-w-md w-full bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-3xl p-8 shadow-2xl relative z-10">
         
         <div class="text-center mb-8">
             <img src="image_11335c.png" alt="Formula Kite Viana do Castelo" class="w-64 mx-auto mb-6 rounded-xl shadow-lg">
             <h2 class="text-2xl font-bold text-white mb-2">Acesso Exclusivo</h2>
-            <p class="text-slate-400">Registe-se para aceder à plataforma</p>
+            <p class="text-slate-400 text-sm">Registe-se para aceder ao Mundial de 2026</p>
         </div>
 
-        <!-- Formulário com FormSubmit e ID para o JavaScript apanhar -->
-        <form id="formAcesso" action="https://formsubmit.co/comunicacao@fpvela.pt" method="POST">
+        <form action="https://formsubmit.co/comunicacao@fpvela.pt" method="POST" id="acessoForm" class="space-y-5">
             
-            <!-- Configurações extra do FormSubmit para UX limpa -->
+            <input type="hidden" name="_next" id="retornoApp" value="">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="Novo Registo na App - Formula Kite 2026">
-            
-            <div class="mb-5">
-                <label class="block text-sm font-medium text-slate-300 mb-2">Nome</label>
+            <input type="hidden" name="_subject" value="Novo Registo na App Formula Kite!">
+
+            <div>
+                <label class="block text-sm font-medium text-slate-300 mb-2">Nome Completo</label>
                 <div class="relative">
                     <i data-lucide="user" class="absolute left-4 top-3.5 text-slate-500 w-5 h-5"></i>
                     <input type="text" name="Nome" required class="w-full bg-slate-950 border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white placeholder-slate-600 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="Ex: João Silva">
                 </div>
             </div>
             
-            <div class="mb-6">
+            <div>
                 <label class="block text-sm font-medium text-slate-300 mb-2">E-mail</label>
                 <div class="relative">
                     <i data-lucide="mail" class="absolute left-4 top-3.5 text-slate-500 w-5 h-5"></i>
@@ -54,21 +50,21 @@
     </div>
 
     <script>
-        // Inicializar os ícones
         lucide.createIcons();
 
-        // Intercetar o envio para garantir que a pessoa entra na App mesmo que o email demore a processar
-        document.getElementById('formAcesso').addEventListener('submit', function(e) {
-            // Guarda a "chave" que o teu index.html está a pedir
+        // 1. Resolve o link morto: Cria o link de retorno automaticamente com base onde a app está hospedada.
+        const urlAtual = window.location.href;
+        const linkRetorno = urlAtual.replace('acesso.html', 'index.html');
+        document.getElementById('retornoApp').value = linkRetorno;
+
+        // 2. Grava a chave para a pessoa passar na segurança do index.html
+        document.getElementById('acessoForm').addEventListener('submit', function() {
             localStorage.setItem('acesso_permitido', 'sim');
             
-            // Alterar o botão para dar feedback visual (opcional mas boa prática)
+            // Feedback visual no botão
             const btn = this.querySelector('button[type="submit"]');
             btn.innerHTML = 'A processar... <i data-lucide="loader" class="w-5 h-5 animate-spin"></i>';
             lucide.createIcons();
-            
-            // Deixa o formulário seguir o seu caminho natural para o FormSubmit.
-            // NOTA: Como não estamos a bloquear o envio (preventDefault), ele vai enviar o email.
         });
     </script>
 </body>
