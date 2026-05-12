@@ -1,0 +1,35 @@
+// Substitui a variável `athletes` no teu ficheiro index.html por este array.
+// ATENÇÃO: Devido a limites de leitura de ficheiros extensos na IA, os atletas a meio da tabela original foram truncados.
+// Solução ideal para o futuro: Criar uma função de upload/fetch que leia o CSV em runtime.
+
+const athletes = [
+    // --- Men's Formula Kite ---
+    { id: "M-3", name: "Deury Corniel javier", country: "DOM", sailNumber: "3", category: "Men", trackingId: "a1814" },
+    { id: "M-4", name: "Haoran Zhang", country: "CHN", sailNumber: "4", category: "Men", trackingId: "a1684" },
+    { id: "M-5", name: "Carmel Avisar", country: "ISR", sailNumber: "5", category: "Men", trackingId: "a2081" },
+    { id: "M-43", name: "Sagdipat Thongjan", country: "THA", sailNumber: "43", category: "Men", trackingId: "a1398" },
+    { id: "M-44", name: "Valentin Bontus", country: "AUT", sailNumber: "44", category: "Men", trackingId: "a1062" },
+    { id: "M-45", name: "Sam Dickinson", country: "GBR", sailNumber: "45", category: "Men", trackingId: "a1090" },
+    { id: "M-46", name: "Cameron Maramenidis", country: "GRE", sailNumber: "46", category: "Men", trackingId: "a1641" },
+    { id: "M-47", name: "Sam Aben", country: "NED", sailNumber: "47", category: "Men", trackingId: "a1325" },
+    { id: "M-48", name: "Piotr Szymiec", country: "POL", sailNumber: "48", category: "Men", trackingId: "a1029" },
+    { id: "M-49", name: "Felix Hecht", country: "SUI", sailNumber: "49", category: "Men", trackingId: "a1346" },
+    { id: "M-50", name: "Paul Labordère", country: "FRA", sailNumber: "50", category: "Men", trackingId: "a1960" },
+    { id: "M-51", name: "Jan JJ Koszowski", country: "POL", sailNumber: "51", category: "Men", trackingId: "a1554" },
+    { id: "M-52", name: "Tijn Rolff", country: "NED", sailNumber: "52", category: "Men", trackingId: "a1103" },
+
+    // --- Women's Formula Kite ---
+    { id: "W-4", name: "Tiana Laporte", country: "ITA", sailNumber: "4", category: "Women", trackingId: "A1113" },
+    { id: "W-5", name: "Lauriane Nolot", country: "FRA", sailNumber: "5", category: "Women", trackingId: "A1105" },
+    { id: "W-6", name: "Mafalda Pires de Lima", country: "POR", sailNumber: "6", category: "Women", trackingId: "A2108" },
+    { id: "W-22", name: "Elena Lengwiler", country: "SUI", sailNumber: "22", category: "Women", trackingId: "A1071" },
+    { id: "W-23", name: "Lily Young", country: "GBR", sailNumber: "23", category: "Women", trackingId: "A1610" },
+    { id: "W-24", name: "Ella Geiger", country: "GBR", sailNumber: "24", category: "Women", trackingId: "A1745" },
+    { id: "W-25", name: "Meijing Xiao", country: "CHN", sailNumber: "25", category: "Women", trackingId: "A1451" },
+    { id: "W-26", name: "Gal Zukerman", country: "ISR", sailNumber: "26", category: "Women", trackingId: "A1387" },
+    { id: "W-27", name: "Si Wang", country: "CHN", sailNumber: "27", category: "Women", trackingId: "A2095" },
+    { id: "W-28", name: "Jill Paland", country: "GER", sailNumber: "28", category: "Women", trackingId: "A1914" },
+    { id: "W-29", name: "Gisela Pulido Borrell", country: "ESP", sailNumber: "29", category: "Women", trackingId: "A1426" },
+    { id: "W-30", name: "Argyro Krotsi", country: "GRE", sailNumber: "30", category: "Women", trackingId: "A1471" },
+    { id: "W-31", name: "Valeriia Garashchenko", country: "AIN", sailNumber: "31", category: "Women", trackingId: "A1205" }
+];
