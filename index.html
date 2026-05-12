@@ -125,7 +125,7 @@
             pt: {
                 officialApp: "App Oficial", partners: "Parceiros Oficiais:",
                 tabMap: "MAPA", tabSchedule: "CALENDÁRIO", tabAI: "ASSISTENTE IA", tabSettings: "DEFINIÇÕES",
-                tabTracking: "TRACKING LIVE", tabAthletes: "ATLETAS", tabHotel: "HOTEL", tabResults: "RESULTADOS",
+                tabTracking: "FORMULA KITE", tabAthletes: "ATLETAS", tabHotel: "HOTEL", tabResults: "RESULTADOS",
                 subtitle: "Viana do Castelo", subtitleDates: "9 a 17 Maio 2026",
                 filterAll: "Tudo", filterRace: "Regata", filterLogistics: "Logística", filterFanzone: "Público", filterEco: "Reciclagem",
                 backBtn: "Voltar", poiTitle: "PONTOS DE INTERESSE",
@@ -161,7 +161,7 @@
             en: {
                 officialApp: "Official App", partners: "Official Partners:",
                 tabMap: "MAP", tabSchedule: "SCHEDULE", tabAI: "AI ASSISTANT", tabSettings: "SETTINGS",
-                tabTracking: "LIVE TRACKING", tabAthletes: "ATHLETES", tabHotel: "HOTEL", tabResults: "RESULTS",
+                tabTracking: "FORMULA KITE", tabAthletes: "ATHLETES", tabHotel: "HOTEL", tabResults: "RESULTS",
                 subtitle: "Viana do Castelo", subtitleDates: "May 9-17, 2026",
                 filterAll: "All", filterRace: "Race", filterLogistics: "Logistics", filterFanzone: "Public", filterEco: "Eco / Recycling",
                 backBtn: "Back", poiTitle: "POINTS OF INTEREST",
@@ -813,7 +813,6 @@ END:VCALENDAR`;
                         {[
                             { id: 'tracking', icon: 'crosshair', label: t.tabTracking },
                             { id: 'map', icon: 'map', label: t.tabMap },
-                            { id: 'results', icon: 'list-ordered', label: t.tabResults },
                             { id: 'athletes', icon: 'users', label: t.tabAthletes },
                             { id: 'hotel', icon: 'building', label: t.tabHotel },
                             { id: 'schedule', icon: 'calendar', label: t.tabSchedule },
@@ -834,7 +833,7 @@ END:VCALENDAR`;
                 </header>
 
                 {/* === CONTEÚDO PRINCIPAL === */}
-                <div className={`flex-1 flex overflow-hidden ${activeTab === 'map' || activeTab === 'tracking' ? 'flex-col lg:flex-row' : 'flex-col'}`}>
+                <div className={`flex-1 flex overflow-hidden ${activeTab === 'map' ? 'flex-col lg:flex-row' : 'flex-col'}`}>
                   
                   {/* 1️⃣ MAPA GOOGLE EARTH */}
                   {activeTab === 'map' ? (
@@ -941,125 +940,63 @@ END:VCALENDAR`;
                       </aside>
                     </>
                   ) : activeTab === 'tracking' ? (
-                      /* 2️⃣ LIVE TRACKING VIEW */
-                      <>
-                        <main className="flex-none h-[50vh] lg:h-auto lg:flex-1 relative overflow-hidden bg-slate-900 transition-colors duration-300">
-                          <div className={`absolute inset-0 z-10 ${isDarkMode ? 'brightness-75 saturate-150 contrast-125' : ''}`}>
-                              <div id="tracking-map" className="w-full h-full absolute inset-0"></div>
-                          </div>
-
-                          <div className="absolute top-6 left-6 z-30 flex flex-col gap-2">
-                              <button onClick={() => trackingMapRef.current?.zoomIn()} className="bg-white/90 backdrop-blur dark:bg-slate-800/90 p-2.5 rounded-xl shadow-lg border border-white/20 text-slate-700 dark:text-slate-300 hover:text-emerald-500 hover:scale-105 transition-all"><MIcon name="zoom-in" size={20}/></button>
-                              <button onClick={() => trackingMapRef.current?.zoomOut()} className="bg-white/90 backdrop-blur dark:bg-slate-800/90 p-2.5 rounded-xl shadow-lg border border-white/20 text-slate-700 dark:text-slate-300 hover:text-emerald-500 hover:scale-105 transition-all"><MIcon name="zoom-out" size={20}/></button>
-                              <button onClick={() => trackingMapRef.current?.setZoom(14)} className="bg-white/90 backdrop-blur dark:bg-slate-800/90 p-2.5 rounded-xl shadow-lg border border-white/20 text-[10px] font-black text-slate-700 dark:text-slate-300 hover:text-emerald-500 hover:scale-105 transition-all">1x</button>
-                          </div>
-                        </main>
-
-                        <aside className="flex-1 lg:flex-none w-full lg:w-[420px] bg-white dark:bg-slate-900 border-t lg:border-t-0 lg:border-l border-slate-200 dark:border-slate-800 flex flex-col z-20">
-                            <div className="p-4 lg:p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-800/50">
-                                <div>
-                                    <h2 className="text-xl font-black text-slate-800 dark:text-white tracking-tight flex items-center gap-2">
-                                        <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></span> Live Leaderboard
-                                    </h2>
-                                    <p className="text-[10px] text-slate-500">Race 3 • Target: 12m</p>
-                                </div>
-                                <button onClick={exportCSV} className="bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 px-3 py-2 rounded-lg text-xs font-bold flex items-center gap-2 hover:bg-emerald-200 transition-colors">
-                                    <MIcon name="download" size={14} /> <span className="hidden md:inline">{t.trackExport}</span>
-                                </button>
-                            </div>
-
-                            <div className="flex-1 overflow-y-auto p-4">
-                                <table className="w-full text-left">
-                                    <thead>
-                                        <tr className="text-[10px] text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-800">
-                                            <th className="pb-3 pl-2">{t.trackPos}</th>
-                                            <th className="pb-3">{t.trackName}</th>
-                                            <th className="pb-3">{t.trackNat}</th>
-                                            <th className="pb-3 text-right pr-2">{t.trackSpeed}</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {liveAthletes.sort((a,b)=>a.pos-b.pos).map(a => (
-                                            <tr key={a.id} className="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
-                                                <td className="py-4 pl-2 font-black text-lg text-slate-300 dark:text-slate-600">{a.pos}</td>
-                                                <td className="py-4 font-bold text-sm text-slate-800 dark:text-white">{a.name}</td>
-                                                <td className="py-4"><span className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-xs font-bold">{a.flag} {a.country}</span></td>
-                                                <td className="py-4 text-right pr-2 text-emerald-600 dark:text-emerald-400 font-mono font-bold">{a.speed}kt</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </aside>
-                      </>
-                  ) : activeTab === 'results' ? (
-                      /* 🏆 SECÇÃO DE RESULTADOS */
+                      /* FORMULA KITE - TRACKING & RESULTS */
                       <div className="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950 p-4 lg:p-12 animate-in fade-in duration-500">
-                          <div className="max-w-6xl mx-auto">
-                              <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
-                                  <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase flex items-center gap-3">
-                                      <MIcon name="list-ordered" className="text-emerald-500" size={32}/> {t.tabResults}
-                                  </h2>
-                                  <div className="flex bg-white dark:bg-slate-900 p-1.5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-x-auto no-scrollbar shrink-0">
-                                      <button onClick={() => setResTab('overall')} className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${resTab === 'overall' ? 'bg-slate-800 dark:bg-slate-700 text-white' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'}`}>{t.resOverall}</button>
-                                      <button onClick={() => setResTab('races')} className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${resTab === 'races' ? 'bg-slate-800 dark:bg-slate-700 text-white' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'}`}>{t.resRaces}</button>
-                                      <button onClick={() => setResTab('medal')} className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${resTab === 'medal' ? 'bg-amber-500 text-white' : 'text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white'}`}>{t.resMedal}</button>
+                          <div className="max-w-4xl mx-auto min-h-full flex items-center justify-center">
+                              <div className="w-full bg-white dark:bg-slate-900 rounded-[2rem] shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                                  <div className="relative p-8 lg:p-12 text-center bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900 overflow-hidden">
+                                      <div className="absolute inset-0 opacity-20 pointer-events-none">
+                                          <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-emerald-400 blur-3xl"></div>
+                                          <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-sky-400 blur-3xl"></div>
+                                      </div>
+                                      <div className="relative z-10">
+                                          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 border border-white/10 text-emerald-300 mb-6 shadow-lg">
+                                              <MIcon name="waves" size={34} />
+                                          </div>
+                                          <h2 className="text-4xl lg:text-6xl font-black text-white uppercase tracking-tight leading-none">Formula Kite</h2>
+                                          <p className="mt-4 text-sm lg:text-base text-slate-300 font-bold uppercase tracking-widest">
+                                              {lang === 'pt' ? 'Tracking live e resultados oficiais' : 'Live tracking and official results'}
+                                          </p>
+                                      </div>
                                   </div>
-                              </div>
 
-                              <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden overflow-x-auto">
-                                  <table className="w-full text-left min-w-[600px]">
-                                      <thead>
-                                          <tr className="bg-slate-50 dark:bg-slate-800/50 text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-widest border-b border-slate-200 dark:border-slate-700">
-                                              <th className="p-4 pl-6 w-16">{t.trackPos}</th>
-                                              <th className="p-4 w-24">{t.trackNat}</th>
-                                              <th className="p-4">{t.trackName}</th>
-                                              {resTab === 'overall' && <th className="p-4 text-right pr-8">{t.resPts}</th>}
-                                              {resTab === 'races' && (
-                                                  <React.Fragment>
-                                                      <th className="p-4 text-center">R1</th><th className="p-4 text-center">R2</th><th className="p-4 text-center">R3</th><th className="p-4 text-center">R4</th><th className="p-4 text-right pr-6">NET</th>
-                                                  </React.Fragment>
-                                              )}
-                                              {resTab === 'medal' && <th className="p-4 text-right pr-8">STATUS</th>}
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          {(resTab === 'medal' ? resultsMedal : resultsOverall).map((ath, idx) => (
-                                              <tr key={idx} className="border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
-                                                  <td className="p-4 pl-6 font-black text-lg text-slate-400 dark:text-slate-500 group-hover:text-emerald-500">
-                                                      {ath.pos === 1 && <MIcon name="trophy" size={20} className="text-yellow-500" />}
-                                                      {ath.pos === 2 && <MIcon name="medal" size={20} className="text-slate-400" />}
-                                                      {ath.pos === 3 && <MIcon name="medal" size={20} className="text-amber-600" />}
-                                                      {ath.pos > 3 && ath.pos}
-                                                  </td>
-                                                  <td className="p-4"><span className="bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md text-xs font-bold border border-slate-200 dark:border-slate-700">{ath.flag} {ath.nat}</span></td>
-                                                  <td className="p-4 font-bold text-sm lg:text-base text-slate-800 dark:text-white">{ath.name}</td>
-                                                  
-                                                  {resTab === 'overall' && <td className="p-4 text-right pr-8 font-black text-lg text-emerald-600 dark:text-emerald-400">{ath.net}</td>}
-                                                  
-                                                  {resTab === 'races' && (
-                                                      <React.Fragment>
-                                                          <td className={`p-4 text-center text-sm font-medium ${ath.r1.toString().includes('(') ? 'text-red-400 line-through' : 'text-slate-600 dark:text-slate-300'}`}>{ath.r1}</td>
-                                                          <td className={`p-4 text-center text-sm font-medium ${ath.r2.toString().includes('(') ? 'text-red-400 line-through' : 'text-slate-600 dark:text-slate-300'}`}>{ath.r2}</td>
-                                                          <td className={`p-4 text-center text-sm font-medium ${ath.r3.toString().includes('(') ? 'text-red-400 line-through' : 'text-slate-600 dark:text-slate-300'}`}>{ath.r3}</td>
-                                                          <td className={`p-4 text-center text-sm font-medium ${ath.r4.toString().includes('(') ? 'text-red-400 line-through' : 'text-slate-600 dark:text-slate-300'}`}>{ath.r4}</td>
-                                                          <td className="p-4 text-right pr-6 font-black text-emerald-600 dark:text-emerald-400">{ath.net}</td>
-                                                      </React.Fragment>
-                                                  )}
+                                  <div className="p-6 lg:p-10 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                                      <a
+                                          href="https://www.metasail.it/live/844/"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="group bg-slate-50 dark:bg-slate-800/60 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 border border-slate-200 dark:border-slate-700 hover:border-emerald-400 rounded-3xl p-6 lg:p-8 transition-all shadow-sm hover:shadow-xl active:scale-[0.98]"
+                                      >
+                                          <div className="flex items-center justify-between gap-4 mb-8">
+                                              <div className="w-14 h-14 rounded-2xl bg-emerald-500 text-white flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-110 transition-transform">
+                                                  <MIcon name="crosshair" size={28} />
+                                              </div>
+                                              <MIcon name="external-link" size={22} className="text-slate-300 dark:text-slate-600 group-hover:text-emerald-500 transition-colors" />
+                                          </div>
+                                          <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Tracking Live</h3>
+                                          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                                              {lang === 'pt' ? 'Abrir o tracking em tempo real da prova.' : 'Open the real-time race tracking.'}
+                                          </p>
+                                      </a>
 
-                                                  {resTab === 'medal' && (
-                                                      <td className="p-4 text-right pr-8">
-                                                          <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${
-                                                              ath.status === 'WINNER' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400' :
-                                                              ath.status === 'FINALIST' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400' :
-                                                              'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400'
-                                                          }`}>{ath.status}</span>
-                                                      </td>
-                                                  )}
-                                              </tr>
-                                          ))}
-                                      </tbody>
-                                  </table>
+                                      <a
+                                          href="https://kiteclasses.org/2026worlds"
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          className="group bg-slate-50 dark:bg-slate-800/60 hover:bg-sky-50 dark:hover:bg-sky-900/20 border border-slate-200 dark:border-slate-700 hover:border-sky-400 rounded-3xl p-6 lg:p-8 transition-all shadow-sm hover:shadow-xl active:scale-[0.98]"
+                                      >
+                                          <div className="flex items-center justify-between gap-4 mb-8">
+                                              <div className="w-14 h-14 rounded-2xl bg-sky-500 text-white flex items-center justify-center shadow-lg shadow-sky-500/20 group-hover:scale-110 transition-transform">
+                                                  <MIcon name="list-ordered" size={28} />
+                                              </div>
+                                              <MIcon name="external-link" size={22} className="text-slate-300 dark:text-slate-600 group-hover:text-sky-500 transition-colors" />
+                                          </div>
+                                          <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Resultados</h3>
+                                          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                                              {lang === 'pt' ? 'Abrir os resultados oficiais do campeonato.' : 'Open the official championship results.'}
+                                          </p>
+                                      </a>
+                                  </div>
                               </div>
                           </div>
                       </div>
