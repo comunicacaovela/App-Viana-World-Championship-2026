@@ -991,69 +991,72 @@ END:VCALENDAR`;
                           </div>
                       </div>
                   ) : activeTab === 'athletes' ? (
-                      /* 🏄 SECÇÃO ATLETAS */
-                      <div className="space-y-8 p-4 overflow-y-auto h-[75vh] pb-32">
-                          
-  {/* Secção Homens */}
-  <div>
-    <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
-      <MIcon name="users" size={24} className="text-cyan-600 dark:text-cyan-400" />
-      Frota Masculina (Men)
-    </h3>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {typeof atletasHomens !== 'undefined' ? (
-        atletasHomens.map((atleta, index) => (
-          <div key={index} className="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4 hover:border-cyan-500 transition-colors">
-            <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-lg flex items-center justify-center font-bold text-lg shrink-0">
-              {atleta.sail}
+                     {/* 🏄 SECÇÃO ATLETAS */}
+<div className="absolute inset-0 overflow-y-auto pb-32 bg-slate-50 dark:bg-slate-900">
+  <div className="max-w-7xl mx-auto space-y-8 p-4 lg:p-8">
+    
+    {/* Secção Homens */}
+    <div>
+      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
+        <MIcon name="users" size={24} className="text-cyan-600 dark:text-cyan-400" />
+        Frota Masculina (Men)
+      </h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {typeof atletasHomens !== 'undefined' ? (
+          atletasHomens.map((atleta, index) => (
+            <div key={index} className="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4 hover:border-cyan-500 transition-colors">
+              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-lg flex items-center justify-center font-bold text-lg shrink-0">
+                {atleta.sail}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-sm text-slate-800 dark:text-white truncate uppercase">
+                  {atleta.name} {atleta.surname}
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  {atleta.nationality}
+                </p>
+              </div>
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="font-bold text-sm text-slate-800 dark:text-white truncate uppercase">
-                {atleta.name} {atleta.surname}
-              </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                {atleta.nationality}
-              </p>
-            </div>
+          ))
+        ) : (
+          <div className="p-4 bg-red-100 text-red-600 rounded-lg col-span-full">
+            Erro: Não foi possível carregar a lista.
           </div>
-        ))
-      ) : (
-        <div className="p-4 bg-red-100 text-red-600 rounded-lg col-span-full">
-          Erro: Não foi possível carregar a lista de homens. Verifica se o ficheiro atletas.js está na mesma pasta.
-        </div>
-      )}
+        )}
+      </div>
     </div>
-  </div>
 
-  {/* Secção Mulheres */}
-  <div>
-    <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2 mt-6">
-      <MIcon name="users" size={24} className="text-pink-500 dark:text-pink-400" />
-      Frota Feminina (Women)
-    </h3>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {typeof atletasMulheres !== 'undefined' ? (
-        atletasMulheres.map((atleta, index) => (
-          <div key={index} className="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4 hover:border-pink-500 transition-colors">
-            <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-lg flex items-center justify-center font-bold text-lg shrink-0">
-              {atleta.sail}
+    {/* Secção Mulheres */}
+    <div>
+      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2 mt-8">
+        <MIcon name="users" size={24} className="text-pink-500 dark:text-pink-400" />
+        Frota Feminina (Women)
+      </h3>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {typeof atletasMulheres !== 'undefined' ? (
+          atletasMulheres.map((atleta, index) => (
+            <div key={index} className="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4 hover:border-pink-500 transition-colors">
+              <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-lg flex items-center justify-center font-bold text-lg shrink-0">
+                {atleta.sail}
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-sm text-slate-800 dark:text-white truncate uppercase">
+                  {atleta.name} {atleta.surname}
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  {atleta.nationality}
+                </p>
+              </div>
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="font-bold text-sm text-slate-800 dark:text-white truncate uppercase">
-                {atleta.name} {atleta.surname}
-              </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                {atleta.nationality}
-              </p>
-            </div>
+          ))
+        ) : (
+          <div className="p-4 bg-red-100 text-red-600 rounded-lg col-span-full">
+            Erro: Não foi possível carregar a lista.
           </div>
-        ))
-      ) : (
-        <div className="p-4 bg-red-100 text-red-600 rounded-lg col-span-full">
-          Erro: Não foi possível carregar a lista de mulheres. Verifica se o ficheiro atletas.js está na mesma pasta.
-        </div>
-      )}
+        )}
+      </div>
     </div>
+
   </div>
 </div>
                   ) : activeTab === 'hotel' ? (
