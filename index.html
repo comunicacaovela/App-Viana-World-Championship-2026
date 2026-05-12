@@ -156,6 +156,10 @@
                 partnerModoDesc: "Escola oficial parceira do evento.",
                 partnerFeelVianaDesc: "Alojamento oficial e parceiro logístico.",
                 partnerNorteDesc: "Turismo do Porto e Norte - Promoção da região.",
+                partnerOceanDesc: "Sustentabilidade e Energia Eólica.",
+                partnerCMVDCDesc: "Câmara Municipal anfitriã do evento.",
+                partnerIPDJDesc: "Instituto Português do Desporto e Juventude.",
+                partnerFormulaKiteDesc: "Website oficial da classe de competição.",
                 qualifiersLabel: "QUALIFICAÇÕES", finalsLabel: "FINAIS"
             },
             en: {
@@ -192,6 +196,10 @@
                 partnerModoDesc: "Official partner kite school.",
                 partnerFeelVianaDesc: "Official accommodation and logistics.",
                 partnerNorteDesc: "Porto and North Tourism Board - Regional promotion.",
+                partnerOceanDesc: "Sustainability and Wind Energy.",
+                partnerCMVDCDesc: "Event's Host City Council.",
+                partnerIPDJDesc: "Portuguese Institute of Sport and Youth.",
+                partnerFormulaKiteDesc: "Official competition class website.",
                 qualifiersLabel: "QUALIFIERS", finalsLabel: "FINALS"
             }
         };
@@ -898,7 +906,7 @@ END:VCALENDAR`;
                                     </thead>
                                     <tbody>
                                         {liveAthletes.sort((a,b)=>a.pos-b.pos).map(a => (
-                                            <tr key={a.id} className="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                            <tr key={a.id} className="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
                                                 <td className="py-4 pl-2 font-black text-lg text-slate-300 dark:text-slate-600">{a.pos}</td>
                                                 <td className="py-4 font-bold text-sm text-slate-800 dark:text-white">{a.name}</td>
                                                 <td className="py-4"><span className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-xs font-bold">{a.flag} {a.country}</span></td>
@@ -1195,10 +1203,10 @@ END:VCALENDAR`;
                                           </h3>
                                           <div className="grid grid-cols-2 gap-3">
                                               <button onClick={() => setIsDarkMode(false)} className={`py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 border-2 ${!isDarkMode ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 shadow-sm' : 'border-transparent bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}>
-                                                  <MIcon name="sun" size={16} /> {t.themeLight}
+                                                  <MIcon name="sun" size={16} /> {lang === 'pt' ? 'Claro' : 'Light'}
                                               </button>
                                               <button onClick={() => setIsDarkMode(true)} className={`py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 border-2 ${isDarkMode ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 shadow-sm' : 'border-transparent bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}>
-                                                  <MIcon name="moon" size={16} /> {t.themeDark}
+                                                  <MIcon name="moon" size={16} /> {lang === 'pt' ? 'Escuro' : 'Dark'}
                                               </button>
                                           </div>
                                       </div>
@@ -1265,6 +1273,52 @@ END:VCALENDAR`;
                                               </div>
                                               <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-emerald-500" />
                                           </a>
+
+                                          {/* NOVOS PARCEIROS ADICIONADOS */}
+                                          <a href="https://www.oceanwinds.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                              <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                                  <MIcon name="waves" size={24} />
+                                              </div>
+                                              <div className="flex-1">
+                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Ocean Wings</h4>
+                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerOceanDesc}</p>
+                                              </div>
+                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-teal-500" />
+                                          </a>
+
+                                          <a href="https://www.cm-viana-castelo.pt/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                              <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                                  <MIcon name="landmark" size={24} />
+                                              </div>
+                                              <div className="flex-1">
+                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">CM Viana do Castelo</h4>
+                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerCMVDCDesc}</p>
+                                              </div>
+                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-red-500" />
+                                          </a>
+
+                                          <a href="https://ipdj.gov.pt/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                                  <MIcon name="users" size={24} />
+                                              </div>
+                                              <div className="flex-1">
+                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">IPDJ</h4>
+                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerIPDJDesc}</p>
+                                              </div>
+                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-orange-500" />
+                                          </a>
+
+                                          <a href="https://www.formulakite.org/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
+                                              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                                  <MIcon name="anchor" size={24} />
+                                              </div>
+                                              <div className="flex-1">
+                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">Formula Kite</h4>
+                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerFormulaKiteDesc}</p>
+                                              </div>
+                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-cyan-500" />
+                                          </a>
+
                                       </div>
                                   </div>
                               </div>
