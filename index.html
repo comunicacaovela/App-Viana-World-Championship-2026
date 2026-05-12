@@ -9,7 +9,6 @@
     <meta name="theme-color" content="#0f172a">
     <link rel="apple-touch-icon" href="icon.png">
     <title>2026 Formula Kite World Championships</title>
-    <script src="atletas.js"></script>
 
     <!-- SISTEMA DE BLOQUEIO / ACESSO -->
     <script>
@@ -157,10 +156,6 @@
                 partnerModoDesc: "Escola oficial parceira do evento.",
                 partnerFeelVianaDesc: "Alojamento oficial e parceiro logístico.",
                 partnerNorteDesc: "Turismo do Porto e Norte - Promoção da região.",
-                partnerOceanDesc: "Sustentabilidade e Energia Eólica.",
-                partnerCMVDCDesc: "Câmara Municipal anfitriã do evento.",
-                partnerIPDJDesc: "Instituto Português do Desporto e Juventude.",
-                partnerFormulaKiteDesc: "Website oficial da classe de competição.",
                 qualifiersLabel: "QUALIFICAÇÕES", finalsLabel: "FINAIS"
             },
             en: {
@@ -197,10 +192,6 @@
                 partnerModoDesc: "Official partner kite school.",
                 partnerFeelVianaDesc: "Official accommodation and logistics.",
                 partnerNorteDesc: "Porto and North Tourism Board - Regional promotion.",
-                partnerOceanDesc: "Sustainability and Wind Energy.",
-                partnerCMVDCDesc: "Event's Host City Council.",
-                partnerIPDJDesc: "Portuguese Institute of Sport and Youth.",
-                partnerFormulaKiteDesc: "Official competition class website.",
                 qualifiersLabel: "QUALIFIERS", finalsLabel: "FINALS"
             }
         };
@@ -377,15 +368,93 @@ END:VCALENDAR`;
               document.body.removeChild(a);
           };
 
-          // 🏄 ATLETAS DATA (Atualizado com Info de Paris 2024 e LA 2028)
+          // 🏄 ATLETAS DATA (Atualizado a partir de Men.html e Women.html)
           const athleteProfiles = [
-              { name: 'Axel Mazella', nat: 'FRA', flag: '🇫🇷', sail: '21', rank: 1, gear: 'Ozone / Levitaz', kites: '15m / 11m / 9m VMG', desc: lang === 'pt' ? 'Favorito com vento forte e águas mexidas.' : 'Favorite in strong winds and choppy waters.' },
-              { name: 'Max Maeder', nat: 'SGP', flag: '🇸🇬', sail: '1', rank: 2, gear: 'Flysurfer', kites: '21m / 15m / 11m', desc: lang === 'pt' ? 'Campeão do mundo em título.' : 'Reigning world champion.' },
-              { name: 'Riccardo Pianosi', nat: 'ITA', flag: '🇮🇹', sail: '10', rank: 4, gear: 'Ozone', kites: '15m / 11m / 9m', desc: lang === 'pt' ? 'Jovem promessa italiana super rápida.' : 'Young Italian promise, incredibly fast.' },
-              { name: 'Connor Bainbridge', nat: 'GBR', flag: '🇬🇧', sail: '4', rank: 3, gear: 'Flysurfer', kites: '21m / 15m / 11m', desc: lang === 'pt' ? 'Especialista em condições de vento leve.' : 'Specialist in light wind conditions.' },
-              { name: 'Daniela Moroz', nat: 'USA', flag: '🇺🇸', sail: '14', rank: 1, gear: 'Flysurfer', kites: '15m / 11m / 9m', desc: lang === 'pt' ? 'Líder incontestável da elite feminina.' : 'Undisputed leader of the female elite.' },
-              { name: 'Tomás Pires de Lima', nat: 'POR', flag: '🇵🇹', sail: '7', rank: 18, gear: 'F-One / Viana', kites: '15m / 11m / 9m', desc: lang === 'pt' ? 'Integra o projeto Olímpico para Los Angeles 2028. A competir em casa.' : 'Part of the Olympic project for LA 2028. Competing at home.' },
-              { name: 'Mafalda Pires de Lima', nat: 'POR', flag: '🇵🇹', sail: '12', rank: 12, gear: 'F-One / Viana', kites: '15m / 11m', desc: lang === 'pt' ? '14º Lugar em Paris 2024. Integra o projeto Olímpico para LA 2028.' : '14th place in Paris 2024. Part of the Olympic project for LA 2028.' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Deury Corniel javier', nat: 'DOM', flag: '🇩🇴', sail: '3', tracker: 'a1814' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Haoran Zhang', nat: 'CHN', flag: '🇨🇳', sail: '4', tracker: 'a1684' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Carmel Avisar', nat: 'ISR', flag: '🇮🇱', sail: '5', tracker: 'a2081' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Qibin Huang', nat: 'CHN', flag: '🇨🇳', sail: '6', tracker: 'a1066' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Jiayi Tian', nat: 'CHN', flag: '🇨🇳', sail: '7', tracker: 'a1163' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Adam Keaton', nat: 'USA', flag: '🇺🇸', sail: '8', tracker: 'a1819' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Riccardo Pianosi', nat: 'ITA', flag: '🇮🇹', sail: '9', tracker: 'a1048' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Maximilian Maeder', nat: 'SGP', flag: '🇸🇬', sail: '10', tracker: 'a1173' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Malo Quernec', nat: 'FRA', flag: '🇫🇷', sail: '11', tracker: 'a2002' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Noah Runciman', nat: 'USA', flag: '🇺🇸', sail: '12', tracker: 'a1494' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Duuk van Hees', nat: 'NED', flag: '🇳🇱', sail: '13', tracker: 'a1715' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Dor Zarka', nat: 'ISR', flag: '🇮🇱', sail: '14', tracker: 'a1516' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Tomas Pires de Lima', nat: 'POR', flag: '🇵🇹', sail: '15', tracker: 'a1755' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Lucas Fonseca', nat: 'BRA', flag: '🇧🇷', sail: '16', tracker: 'a1428' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Chitresh Tatha', nat: 'IND', flag: '🇮🇳', sail: '17', tracker: 'a2039' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Karl Lao Tzu Maeder', nat: 'SUI', flag: '🇨🇭', sail: '18', tracker: 'a1483' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Minh Claeys', nat: 'BEL', flag: '🇧🇪', sail: '19', tracker: 'a1770' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Lukas Walton-Keim', nat: 'NZL', flag: '🇳🇿', sail: '20', tracker: 'a1041' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Leonard Collado', nat: 'ESP', flag: '🇪🇸', sail: '21', tracker: 'a1019' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Nell De Jaham', nat: 'FRA', flag: '🇫🇷', sail: '22', tracker: 'a1159' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Alejandro Climent Hernández', nat: 'ESP', flag: '🇪🇸', sail: '23', tracker: 'a1421' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Zohar Haruvi', nat: 'ISR', flag: '🇮🇱', sail: '24', tracker: 'a1221' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Marcelo Cairo Assenza', nat: 'ESP', flag: '🇪🇸', sail: '25', tracker: 'a1392' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Alex D\'Agostino', nat: 'THA', flag: '🇹🇭', sail: '26', tracker: 'a1988' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Phanuphong Phaetraksa', nat: 'THA', flag: '🇹🇭', sail: '27', tracker: 'a1402' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Martin Dolenc', nat: 'CRO', flag: '🇭🇷', sail: '28', tracker: 'a1826' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Nathan Pearce', nat: 'CAN', flag: '🇨🇦', sail: '29', tracker: 'a1316' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Vojtech Koska', nat: 'CZE', flag: '🇨🇿', sail: '30', tracker: 'a1174' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Jannis Maus', nat: 'GER', flag: '🇩🇪', sail: '31', tracker: 'a1816' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Rongyu Yang', nat: 'CHN', flag: '🇨🇳', sail: '32', tracker: 'a1026' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Flavio Marx', nat: 'ITA', flag: '🇮🇹', sail: '33', tracker: 'a1468' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Joseph Jonathan Weston', nat: 'THA', flag: '🇹🇭', sail: '34', tracker: 'a2035' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Lochy Naismith', nat: 'NZL', flag: '🇳🇿', sail: '35', tracker: 'a1908' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Gian Stragiotti', nat: 'SUI', flag: '🇨🇭', sail: '36', tracker: 'a1630' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Wu Yanying', nat: 'CHN', flag: '🇨🇳', sail: '37', tracker: 'a1962' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Jiangang Wu', nat: 'CHN', flag: '🇨🇳', sail: '38', tracker: 'a1741' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Oscar Timm', nat: 'AUS', flag: '🇦🇺', sail: '39', tracker: 'a1762' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Matheo Coguiec', nat: 'FRA', flag: '🇫🇷', sail: '40', tracker: 'a1102' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Jan Matthis Vöster', nat: 'GER', flag: '🇩🇪', sail: '41', tracker: 'a1635' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Toni Vodisek', nat: 'SLO', flag: '🇸🇮', sail: '42', tracker: 'a1077' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Sagdipat Thongjan', nat: 'THA', flag: '🇹🇭', sail: '43', tracker: 'a1398' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Valentin Bontus', nat: 'AUT', flag: '🇦🇹', sail: '44', tracker: 'a1062' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Sam Dickinson', nat: 'GBR', flag: '🇬🇧', sail: '45', tracker: 'a1090' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Cameron Maramenidis', nat: 'GRE', flag: '🇬🇷', sail: '46', tracker: 'a1641' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Sam Aben', nat: 'NED', flag: '🇳🇱', sail: '47', tracker: 'a1325' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Piotr Szymiec', nat: 'POL', flag: '🇵🇱', sail: '48', tracker: 'a1029' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Felix Hecht', nat: 'SUI', flag: '🇨🇭', sail: '49', tracker: 'a1346' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Paul Labordère', nat: 'FRA', flag: '🇫🇷', sail: '50', tracker: 'a1960' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Jan JJ Koszowski', nat: 'POL', flag: '🇵🇱', sail: '51', tracker: 'a1554' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Tijn Rolff', nat: 'NED', flag: '🇳🇱', sail: '52', tracker: 'a1103' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Gaspard Petit', nat: 'FRA', flag: '🇫🇷', sail: '53', tracker: 'a1873' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Bruno Lobo', nat: 'BRA', flag: '🇧🇷', sail: '54', tracker: 'a1202' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Benoit Gomez', nat: 'FRA', flag: '🇫🇷', sail: '58', tracker: 'a2023' },
+              { gender: 'Men', category: 'Men\'s Formula Kite', name: 'Jan Marciniak', nat: 'POL', flag: '🇵🇱', sail: '60', tracker: 'a1371' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Tiana Laporte', nat: 'ITA', flag: '🇮🇹', sail: '4', tracker: 'A1113' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Lauriane Nolot', nat: 'FRA', flag: '🇫🇷', sail: '5', tracker: 'A1105' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Mafalda Pires de Lima', nat: 'POR', flag: '🇵🇹', sail: '6', tracker: 'A2108' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Chenxue Liu', nat: 'CHN', flag: '🇨🇳', sail: '7', tracker: 'A1566' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Julia Damasiewicz', nat: 'POL', flag: '🇵🇱', sail: '8', tracker: 'A1986' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Wan LI', nat: 'CHN', flag: '🇨🇳', sail: '9', tracker: 'A1786' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Catalina Turienzo', nat: 'ARG', flag: '🇦🇷', sail: '10', tracker: 'A1600' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Sipang Jantrangkul', nat: 'THA', flag: '🇹🇭', sail: '11', tracker: 'A1185' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Daniela Moroz', nat: 'USA', flag: '🇺🇸', sail: '12', tracker: 'A1130' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Maya Ashkenazi', nat: 'ISR', flag: '🇮🇱', sail: '14', tracker: 'A2034' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Marija Dolenc', nat: 'CRO', flag: '🇭🇷', sail: '15', tracker: 'A2058' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Derin Atakan', nat: 'TUR', flag: '🇹🇷', sail: '16', tracker: 'A1131' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Lysa Caval', nat: 'FRA', flag: '🇫🇷', sail: '17', tracker: 'A1215' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Dominika Braunová', nat: 'CZE', flag: '🇨🇿', sail: '18', tracker: 'A1862' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Lucy Bilger', nat: 'NZL', flag: '🇳🇿', sail: '19', tracker: 'A2078' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Breiana Whitehead', nat: 'AUS', flag: '🇦🇺', sail: '20', tracker: 'A1125' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Jessie Kampman', nat: 'NED', flag: '🇳🇱', sail: '21', tracker: 'A2028' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Elena Lengwiler', nat: 'SUI', flag: '🇨🇭', sail: '22', tracker: 'A1071' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Lily Young', nat: 'GBR', flag: '🇬🇧', sail: '23', tracker: 'A1610' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Ella Geiger', nat: 'GBR', flag: '🇬🇧', sail: '24', tracker: 'A1745' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Meijing Xiao', nat: 'CHN', flag: '🇨🇳', sail: '25', tracker: 'A1451' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Gal Zukerman', nat: 'ISR', flag: '🇮🇱', sail: '26', tracker: 'A1387' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Si Wang', nat: 'CHN', flag: '🇨🇳', sail: '27', tracker: 'A2095' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Jill Paland', nat: 'GER', flag: '🇩🇪', sail: '28', tracker: 'A1914' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Gisela Pulido Borrell', nat: 'ESP', flag: '🇪🇸', sail: '29', tracker: 'A1426' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Argyro Krotsi', nat: 'GRE', flag: '🇬🇷', sail: '30', tracker: 'A1471' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Valeriia Garashchenko', nat: 'AIN', flag: '🌐', sail: '31', tracker: 'A1205' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Marina Vodisek', nat: 'SLO', flag: '🇸🇮', sail: '34', tracker: 'A2071' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Izabela Satrjan', nat: 'POL', flag: '🇵🇱', sail: '35', tracker: 'A1639' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Suofeiya Li', nat: 'CHN', flag: '🇨🇳', sail: '39', tracker: 'A1877' },
+              { gender: 'Women', category: 'Women\'s Formula Kite', name: 'Giorgia Speciale', nat: 'ITA', flag: '🇮🇹', sail: '45', tracker: 'A1773' },
           ];
 
           // 🏆 RESULTADOS DATA
@@ -907,7 +976,7 @@ END:VCALENDAR`;
                                     </thead>
                                     <tbody>
                                         {liveAthletes.sort((a,b)=>a.pos-b.pos).map(a => (
-                                            <tr key={a.id} className="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+                                            <tr key={a.id} className="border-b border-slate-50 dark:border-slate-800/50 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
                                                 <td className="py-4 pl-2 font-black text-lg text-slate-300 dark:text-slate-600">{a.pos}</td>
                                                 <td className="py-4 font-bold text-sm text-slate-800 dark:text-white">{a.name}</td>
                                                 <td className="py-4"><span className="bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-xs font-bold">{a.flag} {a.country}</span></td>
@@ -991,74 +1060,70 @@ END:VCALENDAR`;
                           </div>
                       </div>
                   ) : activeTab === 'athletes' ? (
-                     {/* 🏄 SECÇÃO ATLETAS */}
-<div className="absolute inset-0 overflow-y-auto pb-32 bg-slate-50 dark:bg-slate-900">
-  <div className="max-w-7xl mx-auto space-y-8 p-4 lg:p-8">
-    
-    {/* Secção Homens */}
-    <div>
-      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
-        <MIcon name="users" size={24} className="text-cyan-600 dark:text-cyan-400" />
-        Frota Masculina (Men)
-      </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {typeof atletasHomens !== 'undefined' ? (
-          atletasHomens.map((atleta, index) => (
-            <div key={index} className="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4 hover:border-cyan-500 transition-colors">
-              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-lg flex items-center justify-center font-bold text-lg shrink-0">
-                {atleta.sail}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-bold text-sm text-slate-800 dark:text-white truncate uppercase">
-                  {atleta.name} {atleta.surname}
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                  {atleta.nationality}
-                </p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="p-4 bg-red-100 text-red-600 rounded-lg col-span-full">
-            Erro: Não foi possível carregar a lista.
-          </div>
-        )}
-      </div>
-    </div>
+                      /* 🏄 SECÇÃO ATLETAS */
+                      <div className="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950 p-4 lg:p-12 animate-in fade-in duration-500">
+                          <div className="max-w-7xl mx-auto space-y-10">
+                              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
+                                  <div>
+                                      <h2 className="text-3xl font-black text-slate-900 dark:text-white uppercase flex items-center gap-3">
+                                          <MIcon name="users" className="text-emerald-500" size={32}/> {t.tabAthletes}
+                                      </h2>
+                                      <p className="text-sm text-slate-500 dark:text-slate-400 font-bold mt-2 uppercase tracking-widest">
+                                          {athleteProfiles.length} atletas registados · Men & Women Formula Kite
+                                      </p>
+                                  </div>
+                              </div>
 
-    {/* Secção Mulheres */}
-    <div>
-      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2 mt-8">
-        <MIcon name="users" size={24} className="text-pink-500 dark:text-pink-400" />
-        Frota Feminina (Women)
-      </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {typeof atletasMulheres !== 'undefined' ? (
-          atletasMulheres.map((atleta, index) => (
-            <div key={index} className="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex items-center gap-4 hover:border-pink-500 transition-colors">
-              <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 rounded-lg flex items-center justify-center font-bold text-lg shrink-0">
-                {atleta.sail}
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-bold text-sm text-slate-800 dark:text-white truncate uppercase">
-                  {atleta.name} {atleta.surname}
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                  {atleta.nationality}
-                </p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="p-4 bg-red-100 text-red-600 rounded-lg col-span-full">
-            Erro: Não foi possível carregar a lista.
-          </div>
-        )}
-      </div>
-    </div>
+                              {['Men', 'Women'].map((group) => {
+                                  const groupAthletes = athleteProfiles.filter(ath => ath.gender === group);
+                                  return (
+                                      <section key={group} className="space-y-4">
+                                          <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                                              <h3 className="text-xl font-black text-slate-800 dark:text-white uppercase tracking-tight flex items-center gap-2">
+                                                  <MIcon name={group === 'Men' ? 'mars' : 'venus'} className="text-emerald-500" size={22}/> {group === 'Men' ? "Men's Formula Kite" : "Women's Formula Kite"}
+                                              </h3>
+                                              <span className="bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-xs font-black uppercase">
+                                                  {groupAthletes.length} atletas
+                                              </span>
+                                          </div>
 
-  </div>
-</div>
+                                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                                              {groupAthletes.map((ath, idx) => (
+                                                  <div key={`${ath.gender}-${ath.sail}-${idx}`} className="bg-white dark:bg-slate-900 rounded-[2rem] p-6 shadow-xl border border-slate-100 dark:border-slate-800 flex flex-col relative group hover:-translate-y-2 transition-transform">
+                                                      <div className="absolute top-4 right-4 bg-slate-900 dark:bg-emerald-500 text-white font-mono px-2.5 py-1 rounded-lg text-xs font-black shadow-md flex items-center gap-1">
+                                                          <MIcon name="wind" size={12} /> {ath.sail}
+                                                      </div>
+                                                      
+                                                      <div className="flex flex-col items-center text-center mt-4">
+                                                          <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-slate-100 dark:bg-slate-800 mb-4 flex items-center justify-center text-4xl shadow-inner border-4 border-emerald-500/20 group-hover:border-emerald-500 transition-colors">
+                                                              {ath.flag}
+                                                          </div>
+                                                          <h3 className="text-lg lg:text-xl font-black text-slate-800 dark:text-white leading-tight">{ath.name}</h3>
+                                                          <p className="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-widest">{ath.nat}</p>
+                                                          
+                                                          <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-full text-[10px] lg:text-xs font-bold mt-3 border border-slate-200 dark:border-slate-700">
+                                                              {ath.category}
+                                                          </span>
+                                                      </div>
+
+                                                      <div className="mt-auto pt-5 w-full border-t border-slate-100 dark:border-slate-800 flex flex-col gap-2">
+                                                          <div className="flex justify-between items-center bg-slate-50 dark:bg-slate-800/50 px-3 py-2 rounded-lg">
+                                                              <span className="text-[9px] text-slate-400 uppercase tracking-widest font-bold">Sail Nº</span>
+                                                              <span className="text-xs font-bold text-slate-700 dark:text-slate-200">{ath.sail}</span>
+                                                          </div>
+                                                          <div className="flex justify-between items-center bg-sky-50 dark:bg-sky-900/20 px-3 py-2 rounded-lg border border-sky-100 dark:border-sky-900/30">
+                                                              <span className="text-[9px] text-sky-600 dark:text-sky-400 uppercase tracking-widest font-bold">Tracking ID</span>
+                                                              <span className="text-[11px] font-black text-sky-800 dark:text-sky-300">{ath.tracker}</span>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              ))}
+                                          </div>
+                                      </section>
+                                  );
+                              })}
+                          </div>
+                      </div>
                   ) : activeTab === 'hotel' ? (
                       /* 🏨 SECÇÃO HOTEL FEELVIANA */
                       <div className="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950 p-4 lg:p-12 animate-in fade-in duration-500">
@@ -1230,10 +1295,10 @@ END:VCALENDAR`;
                                           </h3>
                                           <div className="grid grid-cols-2 gap-3">
                                               <button onClick={() => setIsDarkMode(false)} className={`py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 border-2 ${!isDarkMode ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 shadow-sm' : 'border-transparent bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}>
-                                                  <MIcon name="sun" size={16} /> {lang === 'pt' ? 'Claro' : 'Light'}
+                                                  <MIcon name="sun" size={16} /> {t.themeLight}
                                               </button>
                                               <button onClick={() => setIsDarkMode(true)} className={`py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 border-2 ${isDarkMode ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 shadow-sm' : 'border-transparent bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}>
-                                                  <MIcon name="moon" size={16} /> {lang === 'pt' ? 'Escuro' : 'Dark'}
+                                                  <MIcon name="moon" size={16} /> {t.themeDark}
                                               </button>
                                           </div>
                                       </div>
@@ -1300,52 +1365,6 @@ END:VCALENDAR`;
                                               </div>
                                               <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-emerald-500" />
                                           </a>
-
-                                          {/* NOVOS PARCEIROS ADICIONADOS */}
-                                          <a href="https://www.oceanwinds.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                                              <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                                                  <MIcon name="waves" size={24} />
-                                              </div>
-                                              <div className="flex-1">
-                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">Ocean Wings</h4>
-                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerOceanDesc}</p>
-                                              </div>
-                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-teal-500" />
-                                          </a>
-
-                                          <a href="https://www.cm-viana-castelo.pt/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                                              <div className="w-12 h-12 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                                                  <MIcon name="landmark" size={24} />
-                                              </div>
-                                              <div className="flex-1">
-                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors">CM Viana do Castelo</h4>
-                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerCMVDCDesc}</p>
-                                              </div>
-                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-red-500" />
-                                          </a>
-
-                                          <a href="https://ipdj.gov.pt/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                                              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                                                  <MIcon name="users" size={24} />
-                                              </div>
-                                              <div className="flex-1">
-                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">IPDJ</h4>
-                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerIPDJDesc}</p>
-                                              </div>
-                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-orange-500" />
-                                          </a>
-
-                                          <a href="https://www.formulakite.org/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-3 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors group border border-transparent hover:border-slate-200 dark:hover:border-slate-700">
-                                              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-400 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                                                  <MIcon name="anchor" size={24} />
-                                              </div>
-                                              <div className="flex-1">
-                                                  <h4 className="font-bold text-sm text-slate-800 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">Formula Kite</h4>
-                                                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{t.partnerFormulaKiteDesc}</p>
-                                              </div>
-                                              <MIcon name="external-link" size={16} className="text-slate-300 dark:text-slate-600 group-hover:text-cyan-500" />
-                                          </a>
-
                                       </div>
                                   </div>
                               </div>
