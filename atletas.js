@@ -1,35 +1,81 @@
 // Ficheiro: atletas.js
-// Este ficheiro contém apenas os dados, isolados do HTML.
+// Lista completa extraída dos novos ficheiros HTML.
 
 const atletasHomens = [
-  { nationality: "DOM", sail: "3", name: "Deury", surname: "Corniel javier" },
-  { nationality: "CHN", sail: "4", name: "Haoran", surname: "Zhang" },
-  { nationality: "ISR", sail: "5", name: "Carmel", surname: "Avisar" },
-
-  // ⚠️ ATENÇÃO: FALTAM AQUI OS ATLETAS DO NÚMERO 6 AO 42 (Homens)
-  // Copia do teu Excel e insere-os aqui. Usa a mesma sintaxe da linha acima.
-  // Exemplo: { nationality: "XXX", sail: "00", name: "Nome", surname: "Apelido" },
-
-  { nationality: "THA", sail: "43", name: "Sagdipat", surname: "Thongjan" },
-  { nationality: "AUT", sail: "44", name: "Valentin", surname: "Bontus" },
-  { nationality: "GBR", sail: "45", name: "Sam", surname: "Dickinson" },
-  { nationality: "GRE", sail: "46", name: "Cameron", surname: "Maramenidis" },
-  { nationality: "NED", sail: "47", name: "Sam", surname: "Aben" },
-  { nationality: "POL", sail: "48", name: "Piotr", surname: "Szymiec" },
-  { nationality: "SUI", sail: "49", name: "Felix", surname: "Hecht" },
-  { nationality: "FRA", sail: "50", name: "Paul", surname: "Labordère" },
-  { nationality: "POL", sail: "51", name: "Jan", surname: "JJ Koszowski" },
-  { nationality: "NED", sail: "52", name: "Tijn", surname: "Rolff" }
+  { nationality: "DOM", sail: "3", name: "Corniel javier", surname: "Deury" },
+  { nationality: "CHN", sail: "4", name: "Zhang", surname: "Haoran" },
+  { nationality: "ISR", sail: "5", name: "Avisar", surname: "Carmel" },
+  { nationality: "CHN", sail: "6", name: "Huang", surname: "Qibin" },
+  { nationality: "CHN", sail: "7", name: "Tian", surname: "Jiayi" },
+  { nationality: "USA", sail: "8", name: "Keaton", surname: "Adam" },
+  { nationality: "ITA", sail: "9", name: "Pianosi", surname: "Riccardo" },
+  { nationality: "SGP", sail: "10", name: "Maeder", surname: "Maximilian" },
+  { nationality: "FRA", sail: "11", name: "Quernec", surname: "Malo" },
+  { nationality: "USA", sail: "12", name: "Runciman", surname: "Noah" },
+  { nationality: "NED", sail: "13", name: "van Hees", surname: "Duuk" },
+  { nationality: "ISR", sail: "14", name: "Zarka", surname: "Dor" },
+  { nationality: "POR", sail: "15", name: "Pires de Lima", surname: "Tomas" },
+  { nationality: "BRA", sail: "16", name: "Fonseca", surname: "Lucas" },
+  { nationality: "IND", sail: "17", name: "Tatha", surname: "Chitresh" },
+  { nationality: "SUI", sail: "18", name: "Maeder", surname: "Karl Lao Tzu" },
+  { nationality: "BEL", sail: "19", name: "Claeys", surname: "Minh" },
+  { nationality: "NZL", sail: "20", name: "Walton-Keim", surname: "Lukas" },
+  { nationality: "ESP", sail: "21", name: "Collado", surname: "Leonard" },
+  { nationality: "FRA", sail: "22", name: "De Jaham", surname: "Nell" },
+  { nationality: "ESP", sail: "23", name: "Climent Hernández", surname: "Alejandro" },
+  { nationality: "ISR", sail: "24", name: "Haruvi", surname: "Zohar" },
+  { nationality: "ESP", sail: "25", name: "Cairo Assenza", surname: "Marcelo" },
+  { nationality: "THA", sail: "26", name: "D'Agostino", surname: "Alex" },
+  { nationality: "THA", sail: "27", name: "Phaetraksa", surname: "Phanuphong" },
+  { nationality: "CRO", sail: "28", name: "Dolenc", surname: "Martin" },
+  { nationality: "CAN", sail: "29", name: "Pearce", surname: "Nathan" },
+  { nationality: "CZE", sail: "30", name: "Koska", surname: "Vojtech" },
+  { nationality: "GER", sail: "31", name: "Maus", surname: "Jannis" },
+  { nationality: "CHN", sail: "32", name: "Yang", surname: "Rongyu" },
+  { nationality: "ITA", sail: "33", name: "Marx", surname: "Flavio" },
+  { nationality: "THA", sail: "34", name: "Weston", surname: "Joseph Jonathan" },
+  { nationality: "NZL", sail: "35", name: "Naismith", surname: "Lochy" },
+  { nationality: "SUI", sail: "36", name: "Stragiotti", surname: "Gian" },
+  { nationality: "CHN", sail: "37", name: "Yanying", surname: "Wu" },
+  { nationality: "CHN", sail: "38", name: "Wu", surname: "Jiangang" },
+  { nationality: "AUS", sail: "39", name: "Timm", surname: "Oscar" },
+  { nationality: "FRA", sail: "40", name: "Coguiec", surname: "Matheo" },
+  { nationality: "GER", sail: "41", name: "Vöster", surname: "Jan Matthis" },
+  { nationality: "SLO", sail: "42", name: "Vodisek", surname: "Toni" },
+  { nationality: "THA", sail: "43", name: "Thongjan", surname: "Sagdipat" },
+  { nationality: "AUT", sail: "44", name: "Bontus", surname: "Valentin" },
+  { nationality: "GBR", sail: "45", name: "Dickinson", surname: "Sam" },
+  { nationality: "GRE", sail: "46", name: "Maramenidis", surname: "Cameron" },
+  { nationality: "NED", sail: "47", name: "Aben", surname: "Sam" },
+  { nationality: "POL", sail: "48", name: "Szymiec", surname: "Piotr" },
+  { nationality: "SUI", sail: "49", name: "Hecht", surname: "Felix" },
+  { nationality: "FRA", sail: "50", name: "Labordère", surname: "Paul" },
+  { nationality: "POL", sail: "51", name: "JJ Koszowski", surname: "Jan" },
+  { nationality: "NED", sail: "52", name: "Rolff", surname: "Tijn" },
+  { nationality: "FRA", sail: "53", name: "Petit", surname: "Gaspard" },
+  { nationality: "BRA", sail: "54", name: "Lobo", surname: "Bruno" },
+  { nationality: "FRA", sail: "58", name: "Gomez", surname: "Benoit" },
+  { nationality: "POL", sail: "60", name: "Marciniak", surname: "Jan" }
 ];
 
 const atletasMulheres = [
   { nationality: "ITA", sail: "4", name: "Tiana", surname: "Laporte" },
   { nationality: "FRA", sail: "5", name: "Lauriane", surname: "Nolot" },
   { nationality: "POR", sail: "6", name: "Mafalda", surname: "Pires de Lima" },
-
-  // ⚠️ ATENÇÃO: FALTAM AQUI AS ATLETAS DO NÚMERO 7 AO 21 (Mulheres)
-  // Copia do teu Excel e insere-as aqui. Usa a mesma sintaxe da linha acima.
-
+  { nationality: "CHN", sail: "7", name: "Chenxue", surname: "Liu" },
+  { nationality: "POL", sail: "8", name: "Julia", surname: "Damasiewicz" },
+  { nationality: "CHN", sail: "9", name: "Wan", surname: "LI" },
+  { nationality: "ARG", sail: "10", name: "Catalina", surname: "Turienzo" },
+  { nationality: "THA", sail: "11", name: "Sipang", surname: "Jantrangkul" },
+  { nationality: "USA", sail: "12", name: "Daniela", surname: "Moroz" },
+  { nationality: "ISR", sail: "14", name: "Maya", surname: "Ashkenazi" },
+  { nationality: "CRO", sail: "15", name: "Marija", surname: "Dolenc" },
+  { nationality: "TUR", sail: "16", name: "Derin", surname: "Atakan" },
+  { nationality: "FRA", sail: "17", name: "Lysa", surname: "Caval" },
+  { nationality: "CZE", sail: "18", name: "Dominika", surname: "Braunová" },
+  { nationality: "NZL", sail: "19", name: "Lucy", surname: "Bilger" },
+  { nationality: "AUS", sail: "20", name: "Breiana", surname: "Whitehead" },
+  { nationality: "NED", sail: "21", name: "Jessie", surname: "Kampman" },
   { nationality: "SUI", sail: "22", name: "Elena", surname: "Lengwiler" },
   { nationality: "GBR", sail: "23", name: "Lily", surname: "Young" },
   { nationality: "GBR", sail: "24", name: "Ella", surname: "Geiger" },
@@ -39,5 +85,9 @@ const atletasMulheres = [
   { nationality: "GER", sail: "28", name: "Jill", surname: "Paland" },
   { nationality: "ESP", sail: "29", name: "Gisela", surname: "Pulido Borrell" },
   { nationality: "GRE", sail: "30", name: "Argyro", surname: "Krotsi" },
-  { nationality: "AIN", sail: "31", name: "Valeriia", surname: "Garashchenko" }
+  { nationality: "AIN", sail: "31", name: "Valeriia", surname: "Garashchenko" },
+  { nationality: "SLO", sail: "34", name: "Marina", surname: "Vodisek" },
+  { nationality: "POL", sail: "35", name: "Izabela", surname: "Satrjan" },
+  { nationality: "CHN", sail: "39", name: "Suofeiya", surname: "Li" },
+  { nationality: "ITA", sail: "45", name: "Giorgia", surname: "Speciale" }
 ];
